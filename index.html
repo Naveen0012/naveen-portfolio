@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naveen Singh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f4f4f4; color: #333; padding: 20px; }
+    header { text-align: center; padding: 20px 0; }
+    h1 { font-size: 2.5rem; }
+    p { font-size: 1.1rem; color: #666; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 15px; }
+    .card h3 { margin-bottom: 10px; color: #222; }
+    .buttons { display: flex; gap: 10px; margin-top: 10px; }
+    .buttons a { flex: 1; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; }
+    .view-code { background: #6c63ff; }
+    .live-site { background: #28a745; }
+    footer { text-align: center; margin-top: 40px; color: #888; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Naveen Singh</h1>
+    <p>Full Stack Developer | 5+ Years Experience | Projects Below</p>
+  </header>
+
+  <section class="projects">
+    <div class="card">
+      <img src="https://via.placeholder.com/600x400?text=Zomato+Clone" alt="Zomato Clone Screenshot">
+      <div class="card-content">
+        <h3>Zomato Clone</h3>
+        <p>Food delivery app interface clone with restaurant listing and UI features.</p>
+        <div class="buttons">
+          <a href="#" class="live-site">Live Project</a>
+          <a href="#" class="view-code">View Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/600x400?text=Amazon+Clone" alt="Amazon Clone Screenshot">
+      <div class="card-content">
+        <h3>Amazon Clone</h3>
+        <p>E-commerce UI with product page, add to cart and login system.</p>
+        <div class="buttons">
+          <a href="#" class="live-site">Live Project</a>
+          <a href="#" class="view-code">View Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Naveen Singh | All rights reserved
+  </footer>
+</body>
+</html>
