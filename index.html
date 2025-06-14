@@ -1,57 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touch Carousel - Restaurant Collections</title>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Singh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
-        }
+  
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    
+    body { 
+        font-family: 'roboto';
+        background: #f4f4f4;
+        color:black; 
+        padding: 10px; }
+    
+    header { text-align: center; padding: 20px 0; }
+    
+    h1 { font-size: 2.5rem; }
+    
+    p { font-size: 1.1rem; color: #666; }
 
-        .container {
-            max-width: 420px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            border-radius: 25px;
-            padding: 30px 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
 
-        .section-header {
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-
-        /* Touch Carousel Container */
-        .carousel-container {
-            overflow: hidden;
-            margin: 0 -20px;
-            padding: 0 20px;
-        }
 
         .carousel-track {
             display: flex;
@@ -70,114 +42,20 @@
 
         /* Collection Cards */
         .collection-card {
-            min-width: 280px;
-            height: 350px;
-            border-radius: 25px;
+            width: 250px;
+            height: 400px;
+            border-radius: 5px;
             overflow: hidden;
             position: relative;
             cursor: grab;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            
+            border: 1px solid black;
             flex-shrink: 0;
         }
 
-        .collection-card:active {
-            cursor: grabbing;
-            transform: scale(0.98);
-        }
-
-        .collection-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        /* Card Background Images */
-        .card-bg {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        /* Insta-worthy Spots Background */
-        .insta-bg {
-            background: linear-gradient(135deg, 
-                rgba(0,0,0,0.7) 0%, 
-                rgba(0,0,0,0.4) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 350"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><rect width="280" height="350" fill="%231a1a1a"/><circle cx="70" cy="80" r="20" fill="%23FFD700" opacity="0.4" filter="url(%23blur)"/><circle cx="220" cy="60" r="15" fill="%23FF6B6B" opacity="0.3" filter="url(%23blur)"/><circle cx="50" cy="180" r="25" fill="%2340E0D0" opacity="0.3" filter="url(%23blur)"/><circle cx="230" cy="200" r="18" fill="%23FF69B4" opacity="0.4" filter="url(%23blur)"/><circle cx="140" cy="120" r="30" fill="%23FFA500" opacity="0.2" filter="url(%23blur)"/><circle cx="180" cy="280" r="22" fill="%234169E1" opacity="0.3" filter="url(%23blur)"/><rect x="90" y="140" width="100" height="70" rx="10" fill="%23333" opacity="0.6"/><rect x="95" y="145" width="90" height="20" rx="3" fill="%23FF6B6B" opacity="0.8"/><text x="140" y="180" text-anchor="middle" fill="%23fff" font-family="Arial" font-size="12" opacity="0.9">📱 Restaurant</text></svg>');
-        }
-
-        /* Trending Spots Background */
-        .trending-bg {
-            background: linear-gradient(135deg, 
-                rgba(0,0,0,0.6) 0%, 
-                rgba(139,69,19,0.3) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 350"><rect width="280" height="350" fill="%23654321"/><circle cx="60" cy="60" r="35" fill="%23FF8C00" opacity="0.7"/><circle cx="220" cy="80" r="25" fill="%23FFA500" opacity="0.6"/><circle cx="40" cy="180" r="40" fill="%23FF6347" opacity="0.5"/><circle cx="240" cy="200" r="30" fill="%23FF4500" opacity="0.6"/><circle cx="140" cy="140" r="45" fill="%23FF7F50" opacity="0.4"/><circle cx="200" cy="300" r="35" fill="%23DC143C" opacity="0.5"/><rect x="50" y="200" width="180" height="100" rx="15" fill="%23333" opacity="0.4"/><rect x="60" y="220" width="40" height="30" rx="5" fill="%238B4513" opacity="0.8"/><rect x="110" y="220" width="40" height="30" rx="5" fill="%23A0522D" opacity="0.8"/><rect x="160" y="220" width="40" height="30" rx="5" fill="%23CD853F" opacity="0.8"/><rect x="210" y="220" width="40" height="30" rx="5" fill="%23DEB887" opacity="0.8"/></svg>');
-        }
-
-        /* Fine Dining Background */
-        .fine-dining-bg {
-            background: linear-gradient(135deg, 
-                rgba(0,0,0,0.7) 0%, 
-                rgba(75,0,130,0.4) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 350"><rect width="280" height="350" fill="%232F2F2F"/><circle cx="70" cy="100" r="30" fill="%23FFD700" opacity="0.6"/><circle cx="210" cy="80" r="25" fill="%23E6E6FA" opacity="0.4"/><circle cx="140" cy="180" r="35" fill="%23DDA0DD" opacity="0.5"/><circle cx="60" cy="250" r="28" fill="%23F0E68C" opacity="0.4"/><circle cx="220" cy="280" r="32" fill="%23FFC0CB" opacity="0.5"/><rect x="100" y="160" width="80" height="100" rx="10" fill="%23000" opacity="0.3"/><circle cx="140" cy="190" r="15" fill="%23fff" opacity="0.9"/><rect x="130" y="210" width="20" height="2" fill="%23C0C0C0"/><rect x="125" y="220" width="30" height="2" fill="%23C0C0C0"/></svg>');
-        }
-
-        /* Rooftop Bars Background */
-        .rooftop-bg {
-            background: linear-gradient(135deg, 
-                rgba(0,0,0,0.6) 0%, 
-                rgba(25,25,112,0.4) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 350"><rect width="280" height="350" fill="%23191970"/><circle cx="50" cy="50" r="4" fill="%23FFFF00" opacity="0.8"/><circle cx="100" cy="30" r="3" fill="%23FFFF00" opacity="0.7"/><circle cx="180" cy="40" r="3" fill="%23FFFF00" opacity="0.9"/><circle cx="230" cy="70" r="4" fill="%23FFFF00" opacity="0.6"/><circle cx="70" cy="120" r="3" fill="%23FFFF00" opacity="0.8"/><circle cx="200" cy="110" r="4" fill="%23FFFF00" opacity="0.7"/><rect x="20" y="280" width="240" height="70" fill="%23333" opacity="0.7"/><rect x="40" y="260" width="200" height="40" fill="%23444" opacity="0.6"/><rect x="80" y="240" width="120" height="30" fill="%23555" opacity="0.5"/><circle cx="140" cy="200" r="25" fill="%23FF6347" opacity="0.3"/></svg>');
-        }
-
-        /* Street Food Background */
-        .street-food-bg {
-            background: linear-gradient(135deg, 
-                rgba(0,0,0,0.6) 0%, 
-                rgba(255,69,0,0.4) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 350"><rect width="280" height="350" fill="%238B4513"/><rect x="20" y="300" width="240" height="50" fill="%23654321" opacity="0.8"/><rect x="40" y="280" width="200" height="30" fill="%23A0522D" opacity="0.7"/><circle cx="80" cy="200" r="20" fill="%23FF4500" opacity="0.8"/><circle cx="200" cy="180" r="25" fill="%23FF6347" opacity="0.7"/><circle cx="140" cy="160" r="30" fill="%23FF7F50" opacity="0.6"/><rect x="100" y="240" width="80" height="40" rx="5" fill="%23FFD700" opacity="0.6"/><circle cx="60" cy="120" r="15" fill="%23FFA500" opacity="0.8"/><circle cx="220" cy="140" r="18" fill="%23FF8C00" opacity="0.7"/></svg>');
-        }
-
-        /* Card Content Overlay */
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px 25px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #fff;
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            line-height: 1.2;
-        }
-
-        .card-count {
-            font-size: 16px;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-        .card-count::after {
-            content: '▶';
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .collection-card:hover .card-count::after {
-            transform: translateX(3px);
-        }
-
+  .buttons { display: flex; gap: 10px; 
+  margin-top: 10px; }
+    
         /* Hide scroll indicators completely */
         .scroll-indicator {
             display: none;
@@ -186,17 +64,18 @@
         /* Touch-friendly spacing */
         @media (max-width: 480px) {
             .collection-card {
-                min-width: 260px;
-                height: 320px;
+                width: 250px;
+                height: 400px;
             }
             
             .carousel-track {
-                gap: 15px;
+                gap: 5px;
             }
-            
-            .card-title {
-                font-size: 22px;
-            }
+           
+           
+             .buttons { display: flex; gap: 10px; margin-top: 10px; }
+     
+
         }
 
         /* Smooth momentum scrolling for iOS */
@@ -210,78 +89,129 @@
             scroll-snap-stop: always;
         }
 
-        /* Additional polish */
-        .collection-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
 
-        .collection-card:hover::before {
-            opacity: 1;
-        }
+ .card {  }
+    
+    .card:hover { 
+        transform: translateY(-5px); }
+    
+    .card img { max-width: 300px; max-height: 300px; 
+    object-fit: cover; }
+    
+    .card-content { 
+        padding: 15px; }
+    
+    .card h3 { margin-bottom: 10px; color: #222; }
+    
+  
+    .buttons a { flex: 1; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; }
+    
+    .view-code { background: #6c63ff; }
+    .live-site { background: #28a745; }
+    
+    
+
+       
     </style>
 </head>
 <body>
-    <div class="container1">
-        <div class="section-header1">
-            
-        </div>
+       <header>
+    <h1>Naveen Singh</h1>
+    <p>Full Stack Developer | 5+ Years Experience | Projects Below</p>
+  </header>
+     
+     
+     
+     
+ <div class="carousel-track">
+    
+ <div class="collection-card">
 
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="collection-card">
-                    <div class="card-bg insta-bg"></div>
-                    <div class="card-content">
-                        
-                 
-                </div>
+  <div class="card">
+      <img src="https://via.placeholder.com/600x400?text=Zomato+Clone" alt="Zomato Clone Screenshot">
+    
+    </div>
+
+
+
+
+
+ </div>
+                
+                
+ <div class="collection-card">
+     <div class="card">
+      <img src="https://via.placeholder.com/600x400?text=Amazon+Clone" alt="Amazon Clone Screenshot">
+
+    </div>
+ </div>
                 
 
+ <div class="collection-card">
+ 
+    <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Amazon+Clone" alt="Amazon Clone Screenshot">
+
+    </div>
+ </div>
+ 
+</div>
+
+        <div class="buttons">
+          <a href="#" class="live-site">Live Project</a>
+          <a href="#" class="view-code">View Code</a>
+        </div>
+
+
+<br><br><br>
+
+
+
+ <div class="carousel-track">
+ <div class="collection-card">
+
+  <div class="card">
+      <img src="https://via.placeholder.com/600x400?text=Zomato+Clone" alt="Zomato Clone Screenshot">
+  
+    </div>
+ </div>
+                
+                
+ <div class="collection-card">
+     <div class="card">
+      <img src="https://via.placeholder.com/600x400?text=Amazon+Clone" alt="Amazon Clone Screenshot">
+
+    </div>
+ </div>
+                
 
  <div class="collection-card">
- <div class="card-bg trending-bg"></div>
- <div class="card-content">
-                        
-  </div>
-  </div>
+ 
+    <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Amazon+Clone" alt="Amazon Clone Screenshot">
 
-
-
-  <div class="collection-card">
-  <div class="card-bg fine-dining-bg">
-</div>
-  <div class="card-content">
-                       
-  </div>
-  </div>
-
-
-<div class="collection-card">
-<div class="card-bg rooftop-bg"></div>
-  <div class="card-content">
-                      
-   </div>
     </div>
+ </div>
+ 
 
-
-<div class="collection-card">
-<div class="card-bg street-food-bg">
 </div>
 
-<div class="card-content">
-                        
-                    </div>
-                </div>
-            </div>
+
+        <div class="buttons">
+          <a href="#" class="live-site">Live Project</a>
+          <a href="#" class="view-code">View Code</a>
         </div>
-    </div>
+
+
+<br><br><br><br>
+
+
+
+
+
+  <footer>
+    © 2025 Naveen Singh | All rights reserved
+  </footer>
+
 </body>
 </html>
